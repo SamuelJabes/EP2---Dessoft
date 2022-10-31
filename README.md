@@ -1,2 +1,2 @@
-# EP2---Dessoft
+# EP2 - DesSoft
 Exercício Programa 2 
