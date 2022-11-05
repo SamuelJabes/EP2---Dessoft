@@ -70,3 +70,10 @@ def sorteia_questao(questoes_por_nivel, nivel):
     numero_questao = randint(0, len(questoes_por_nivel[nivel])-1)
     questao_sorteada = questoes_por_nivel[nivel][numero_questao]
     return questao_sorteada
+
+def sorteia_questao_inedita(questoes_por_nivel, nivel, questoes_sorteadas):
+    questao_inedita = sorteia_questao(questoes_por_nivel, nivel)
+    while questao_inedita in questoes_sorteadas:
+        questao_inedita = sorteia_questao(questoes_por_nivel, nivel)
+    questoes_sorteadas.append(questao_inedita)
+    return questao_inedita
