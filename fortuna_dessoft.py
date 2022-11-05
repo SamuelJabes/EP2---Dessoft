@@ -77,3 +77,13 @@ def sorteia_questao_inedita(questoes_por_nivel, nivel, questoes_sorteadas):
         questao_inedita = sorteia_questao(questoes_por_nivel, nivel)
     questoes_sorteadas.append(questao_inedita)
     return questao_inedita
+
+def questao_para_texto(questao, numero):
+    cabecalho = f'----------------------------------------\nQUESTAO {numero}\n\n{questao["titulo"]}\n\nRESPOSTAS:\n'
+
+    opcoes = ''
+    for letra in questao['opcoes'].keys():
+        opcoes += f'{letra}: {questao["opcoes"][letra]}\n'
+    questao_formatada = cabecalho+opcoes
+    
+    return questao_formatada
