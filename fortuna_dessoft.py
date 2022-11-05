@@ -87,3 +87,18 @@ def questao_para_texto(questao, numero):
     questao_formatada = cabecalho+opcoes
     
     return questao_formatada
+
+def gera_ajuda(questao):
+    opcoes = ['A', 'B', 'C', 'D']
+    dicas_sorteadas = []
+    numero_dicas = randint(1, 2)
+    while numero_dicas != 0:
+        opcao_sorteada = opcoes[randint(0, len(opcoes)-1)]
+        if opcao_sorteada != questao['correta'] and opcao_sorteada not in dicas_sorteadas:
+            dicas_sorteadas.append(questao['opcoes'][opcao_sorteada])
+            numero_dicas -= 1
+    
+    if len(dicas_sorteadas) == 1:
+        return f"DICA:\nOpções certamente erradas: {dicas_sorteadas[0]}"
+    elif len(dicas_sorteadas) == 2:
+        return f"DICA:\nOpções certamente erradas: {dicas_sorteadas[0]} | {dicas_sorteadas[1]}"
