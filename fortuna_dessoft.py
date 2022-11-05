@@ -59,6 +59,13 @@ def valida_questao(questao):
 
     return erros_na_questao
 
+def valida_questoes(lista_questoes):
+    lista_problemas = []
+    for questao in lista_questoes:
+        problemas = valida_questao(questao)
+        lista_problemas.append(problemas)
+    return lista_problemas
+
 def sorteia_questao(lista_questoes, nivel):
     numero_questao = randint(0, len(lista_questoes[nivel])-1)
     questao_sorteada = lista_questoes[nivel][numero_questao]
