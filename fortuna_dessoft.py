@@ -1,3 +1,5 @@
+#### BEM-VINDO AO FORTUNA DESSOFT - BY SAMUEL JABES E VINICIUS RODRIGUES ####
+
 def transforma_base(questoes):
     questoes_por_nivel = {}
     for questao in questoes:
