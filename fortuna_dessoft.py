@@ -108,13 +108,13 @@ def gera_ajuda(questao):
 
 nome = input("Informe o seu nome: ")
 print(f'''
-================ BEM-VINDO AO FORTUNA DESSOFT ================
+========================= BEM-VINDO AO FORTUNA DESSOFT!!! =========================
 \n
 {nome}, você receberá uma pergunta a cada rodada e deverá responder qual o item correto.\n
-A cada resposta correta, seu prêmio aumenta, mas se errar, você perde tudo!\n
-Se você acha que não sabe a resposta, pode escolher sair com o que conseguiu digitando "parar".\n
+A cada resposta correta, seu prêmio aumenta, mas se errar, você perde tudo!\n\n
+
 Você poderá solicitar ajuda dos universitários até 2 vezes digitando "ajuda".\n
 Você poderá pular até 3 questões digitando "pular".\n
-\n
-==============================================================
+Se você achar que não sabe a resposta, pode escolher sair com o que conseguiu digitando "parar".\n
+===================================================================================
 ''')
