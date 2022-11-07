@@ -124,7 +124,7 @@ input('Aperte ENTER para começar o jogo...')
 lista_premios = [1000, 5000, 10000, 30000, 50000, 100000, 300000, 500000, 1000000]
 ajudas_disponiveis = 2
 pulos_disponiveis = 3
-numero_questao = 0
+numero_questao = 1
 questoes_acertadas = 0
 
 lista_questoes = [
@@ -289,3 +289,13 @@ lista_questoes = [
     'correta': 'D'}
 ]
 questoes_por_nivel = transforma_base(lista_questoes)
+
+questoes_sorteadas = []
+
+questao_atual = sorteia_questao_inedita(questoes_por_nivel, 'facil', questoes_sorteadas)
+print(questao_para_texto(questao_atual, numero_questao))
+resposta = input("Sua resposta: ")
+while(resposta != 'parar' or lista_premios[questoes_acertadas] != lista_premios[-1]):
+    questao_atual = sorteia_questao_inedita(questoes_por_nivel, 'facil', questoes_sorteadas)
+    print(questao_para_texto(questao_atual, numero_questao))
+    resposta = input("Sua resposta: ")
