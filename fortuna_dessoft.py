@@ -1,6 +1,7 @@
 #### BEM-VINDO AO FORTUNA DESSOFT - BY SAMUEL JABES E VINICIUS RODRIGUES ####
 
 from random import randint
+from random import choice
 
 def transforma_base(lista_questoes):
     questoes_por_nivel = {}
@@ -121,10 +122,10 @@ Prepara o coração que o desafio vai começar!
 ''')
 input('Aperte ENTER para começar o jogo...')
 
-lista_premios = [1000, 5000, 10000, 30000, 50000, 100000, 300000, 500000, 1000000]
+lista_premios = [0, 1000, 5000, 10000, 30000, 50000, 100000, 300000, 500000, 1000000]
 ajudas_disponiveis = 2
 pulos_disponiveis = 3
-numero_questao = 1
+numero_questao = 0
 questoes_acertadas = 0
 
 lista_questoes = [
@@ -291,11 +292,40 @@ lista_questoes = [
 questoes_por_nivel = transforma_base(lista_questoes)
 
 questoes_sorteadas = []
+classifica_nivel = {
+    0: 'facil', 1: 'facil', 2: 'facil',
+    3: 'medio', 4: 'medio', 5: 'medio',
+    6: choice(['medio', 'dificil']), 
+    7: 'dificil', 8: 'dificil', 9: 'dificil'
+}
 
-questao_atual = sorteia_questao_inedita(questoes_por_nivel, 'facil', questoes_sorteadas)
-print(questao_para_texto(questao_atual, numero_questao))
-resposta = input("Sua resposta: ")
-while(resposta != 'parar' or lista_premios[questoes_acertadas] != lista_premios[-1]):
-    questao_atual = sorteia_questao_inedita(questoes_por_nivel, 'facil', questoes_sorteadas)
+while True:
+    questao_atual = sorteia_questao_inedita(questoes_por_nivel, classifica_nivel[questoes_acertadas], questoes_sorteadas)
+    numero_questao += 1
     print(questao_para_texto(questao_atual, numero_questao))
     resposta = input("Sua resposta: ")
+    if resposta == questao_atual['correta']:
+        questoes_acertadas += 1
+        print(f"VOCÊ ACERTOU! O seu prêmio atual é R$ {lista_premios[questoes_acertadas]},00")
+    elif resposta == 'pula':
+        if pulos_disponiveis == 0:
+            print('Você não tem mais pulos disponíveis')
+        else:
+            pulos_disponiveis -= 1
+            if pulos_disponiveis == 0:
+                print('Você pulou a questão e não tem mais pulos disponíveis')
+            else:
+                print(f"Você pulou a questão e ainda tem {pulos_disponiveis} pulos disponíveis")
+                continue
+    elif resposta == 'ajuda':
+        ajudas_disponiveis -= 1
+        print(gera_ajuda(questao_atual))
+        print(f"Você usou uma ajuda e ainda tem {ajudas_disponiveis} ajudas disponíveis")
+    elif resposta == 'parar':
+        print(f"Você parou com R$ {lista_premios[questoes_acertadas]},00")
+        
+    else:
+        print(f"VOCÊ ERROU! Você perdeu tudo :(")
+        
+    if questoes_acertadas == 9: break
+
