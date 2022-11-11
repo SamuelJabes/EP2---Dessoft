@@ -359,6 +359,7 @@ while not fim_do_jogo:
         replay = input("Gostaria de jogar novamente? [S/N] ")
         if replay.upper() == 'S':
             fim_do_jogo = False
+            # Reinicia as variáveis
             ajudas_disponiveis = 2
             pulos_disponiveis = 3
             numero_questao = 0
