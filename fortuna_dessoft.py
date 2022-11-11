@@ -2,6 +2,7 @@
 
 from random import randint
 from random import choice
+from os import system
 
 def transforma_base(lista_questoes):
     questoes_por_nivel = {}
@@ -104,29 +105,34 @@ def gera_ajuda(questao):
     elif len(dicas_sorteadas) == 2:
         return f"DICA:\nOpções certamente erradas: {dicas_sorteadas[0]} | {dicas_sorteadas[1]}"
 
-
-#### AQUI COMEÇA NOSSO JOGO ####
-
-nome = input("Informe o seu nome: ")
-print(f'''
+def manual_do_jogo(nome):
+    print(f'''
 ========================= BEM-VINDO AO FORTUNA DESSOFT!!! =========================
 \n
 {nome}, você receberá uma pergunta a cada rodada e deverá responder qual o item correto.
 A cada resposta correta, seu prêmio aumenta, mas se errar, você perde tudo!\n
 
 Você poderá solicitar ajuda dos universitários até 2 vezes digitando "ajuda".
-Você poderá pular até 3 questões digitando "pular".
+Você poderá pular até 3 questões digitando "pula".
 Se você achar que não sabe a resposta, pode escolher sair com o que conseguiu digitando "parar".\n
 ===================================================================================\n
 Prepara o coração que o desafio vai começar!
 ''')
-input('Aperte ENTER para começar o jogo...')
+    input('Aperte ENTER para começar o jogo...')
+    pass
+
+#### AQUI COMEÇA NOSSO JOGO ####
+
+system("cls")
+nome = input("Informe o seu nome: ")
+manual_do_jogo(nome)
 
 lista_premios = [0, 1000, 5000, 10000, 30000, 50000, 100000, 300000, 500000, 1000000]
 ajudas_disponiveis = 2
 pulos_disponiveis = 3
 numero_questao = 0
 questoes_acertadas = 0
+fim_do_jogo = False
 
 lista_questoes = [
     {'titulo': 'Qual o resultado da operação 57 + 32?',
@@ -299,33 +305,64 @@ classifica_nivel = {
     7: 'dificil', 8: 'dificil', 9: 'dificil'
 }
 
-while True:
+while not fim_do_jogo:
     questao_atual = sorteia_questao_inedita(questoes_por_nivel, classifica_nivel[questoes_acertadas], questoes_sorteadas)
     numero_questao += 1
-    print(questao_para_texto(questao_atual, numero_questao))
-    resposta = input("Sua resposta: ")
-    if resposta == questao_atual['correta']:
-        questoes_acertadas += 1
-        print(f"VOCÊ ACERTOU! O seu prêmio atual é R$ {lista_premios[questoes_acertadas]},00")
-    elif resposta == 'pula':
-        if pulos_disponiveis == 0:
-            print('Você não tem mais pulos disponíveis')
-        else:
-            pulos_disponiveis -= 1
-            if pulos_disponiveis == 0:
-                print('Você pulou a questão e não tem mais pulos disponíveis')
-            else:
-                print(f"Você pulou a questão e ainda tem {pulos_disponiveis} pulos disponíveis")
-                continue
-    elif resposta == 'ajuda':
-        ajudas_disponiveis -= 1
-        print(gera_ajuda(questao_atual))
-        print(f"Você usou uma ajuda e ainda tem {ajudas_disponiveis} ajudas disponíveis")
-    elif resposta == 'parar':
-        print(f"Você parou com R$ {lista_premios[questoes_acertadas]},00")
-        
-    else:
-        print(f"VOCÊ ERROU! Você perdeu tudo :(")
-        
-    if questoes_acertadas == 9: break
+    fim_da_questao = False
+    usou_ajuda = False
 
+    while not fim_da_questao and not fim_do_jogo:
+        print(questao_para_texto(questao_atual, numero_questao))
+        resposta = input("Sua resposta: ")
+
+        if resposta == questao_atual['correta']:
+            questoes_acertadas += 1
+            print(f"VOCÊ ACERTOU! O seu prêmio atual é R$ {lista_premios[questoes_acertadas]:05.2f}")
+            fim_da_questao = True
+        elif resposta == 'pula':
+            if pulos_disponiveis == 0:
+                print('Você não tem mais pulos disponíveis')
+                input('Aperte ENTER para responder novamente...')
+            else:
+                pulos_disponiveis -= 1
+                if pulos_disponiveis == 0:
+                    print('Você pulou a questão e não tem mais pulos disponíveis')
+                else:
+                    print(f"Você pulou a questão e ainda tem {pulos_disponiveis} pulos disponíveis")
+                    fim_da_questao = True
+        elif resposta == 'ajuda':
+            if ajudas_disponiveis == 0:
+                print('Você não tem mais ajudas disponíveis')
+                input('Aperte ENTER para responder novamente...')
+            elif usou_ajuda:
+                print('Você já usou ajuda nessa questão!')
+                input('Aperte ENTER para responder novamente...')
+            else:
+                ajudas_disponiveis -= 1
+                usou_ajuda = True
+                print(gera_ajuda(questao_atual))
+                print(f"Você usou uma ajuda e ainda tem {ajudas_disponiveis} ajudas disponíveis")
+        elif resposta == 'parar':
+            print(f"Você parou com R$ {lista_premios[questoes_acertadas]:05.2f}")
+            fim_do_jogo = True
+        elif resposta in ['A', 'B', 'C', 'D']:
+            print(f"VOCÊ ERROU! Você perdeu tudo :(")
+            fim_do_jogo = True
+        else:
+            print('OPÇÃO INVÁLIDA!')
+            print("As opções de resposta são 'A', 'B', 'C', 'D', 'ajuda', 'pula' ou 'parar'")
+            input('Aperte ENTER para responder novamente...')
+    
+    if questoes_acertadas == 9: fim_do_jogo = True
+    
+    if fim_do_jogo:
+        replay = input("Gostaria de jogar novamente? [S/N] ")
+        if replay.upper() == 'S':
+            fim_do_jogo = False
+            ajudas_disponiveis = 2
+            pulos_disponiveis = 3
+            numero_questao = 0
+            questoes_acertadas = 0
+            questoes_sorteadas = []
+            system("cls")
+            manual_do_jogo(nome)
