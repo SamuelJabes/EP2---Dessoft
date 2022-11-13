@@ -105,6 +105,8 @@ def gera_ajuda(questao):
     elif len(dicas_sorteadas) == 2:
         return f"DICA:\nOpções certamente erradas: {dicas_sorteadas[0]} | {dicas_sorteadas[1]}"
 
+# Aqui começam funções auxiliares
+
 def manual_do_jogo(nome):
     print(f'''
 ========================= BEM-VINDO AO FORTUNA DESSOFT!!! =========================
@@ -119,6 +121,14 @@ Se você achar que não sabe a resposta, pode escolher sair com o que conseguiu 
 Prepara o coração que o desafio vai começar!
 ''')
     input('Aperte ENTER para começar o jogo...')
+    pass
+
+def print_green(texto):
+    print("\033[92m" + texto + "\033[00m")
+    pass
+
+def print_red(texto):
+    print("\033[91m" + texto + "\033[00m")
     pass
 
 #### AQUI COMEÇA NOSSO JOGO ####
@@ -317,11 +327,11 @@ while not fim_do_jogo:
 
         if resposta == questao_atual['correta']:
             questoes_acertadas += 1
-            print(f"VOCÊ ACERTOU! O seu prêmio atual é R$ {lista_premios[questoes_acertadas]:05.2f}")
+            print_green(f"VOCÊ ACERTOU! O seu prêmio atual é R$ {lista_premios[questoes_acertadas]:05.2f}")
             fim_da_questao = True
         elif resposta == 'pula':
             if pulos_disponiveis == 0:
-                print('Você não tem mais pulos disponíveis')
+                print_red('Você não tem mais pulos disponíveis')
                 input('Aperte ENTER para responder novamente...')
             else:
                 pulos_disponiveis -= 1
@@ -332,10 +342,10 @@ while not fim_do_jogo:
                     fim_da_questao = True
         elif resposta == 'ajuda':
             if ajudas_disponiveis == 0:
-                print('Você não tem mais ajudas disponíveis')
+                print_red('Você não tem mais ajudas disponíveis')
                 input('Aperte ENTER para responder novamente...')
             elif usou_ajuda:
-                print('Você já usou ajuda nessa questão!')
+                print_red('Você já usou ajuda nessa questão!')
                 input('Aperte ENTER para responder novamente...')
             else:
                 ajudas_disponiveis -= 1
@@ -346,10 +356,10 @@ while not fim_do_jogo:
             print(f"Você parou com R$ {lista_premios[questoes_acertadas]:05.2f}")
             fim_do_jogo = True
         elif resposta in ['A', 'B', 'C', 'D']:
-            print(f"VOCÊ ERROU! Você perdeu tudo :(")
+            print_red(f"VOCÊ ERROU! Você perdeu tudo :(")
             fim_do_jogo = True
         else:
-            print('OPÇÃO INVÁLIDA!')
+            print_red('OPÇÃO INVÁLIDA!')
             print("As opções de resposta são 'A', 'B', 'C', 'D', 'ajuda', 'pula' ou 'parar'")
             input('Aperte ENTER para responder novamente...')
     
