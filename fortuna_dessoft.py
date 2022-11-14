@@ -428,7 +428,22 @@ while not fim_do_jogo:
             print("As opções de resposta são 'A', 'B', 'C', 'D', 'ajuda', 'pula' ou 'parar'")
             input('Aperte ENTER para responder novamente...')
     
-    if questoes_acertadas == 9: fim_do_jogo = True
+    if questoes_acertadas == 9:
+        print_green('''
+----------------------------------------
+              .-=========-.
+              \.'-======-'/
+              _|   .=.   |_
+             ((|   {1}   |))
+              \|   /|\   |/
+               \__ '`' __/
+                 _`) (`_
+               _/_______\_
+              /___________\.
+\n----------------------------------------
+        ''')
+        print_green('Você ganhou! Agora você é um milionário, parabéns!!!')
+        fim_do_jogo = True
     
     if fim_do_jogo:
         replay = input("Gostaria de jogar novamente? [S/N] ")
@@ -442,3 +457,5 @@ while not fim_do_jogo:
             questoes_sorteadas = []
             system("cls")
             manual_do_jogo(nome)
+        else:
+            print_green('Obrigado por jogar Fortuna DesSoft! Para nós, você já é um vencedor!')
