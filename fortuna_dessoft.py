@@ -150,6 +150,16 @@ lista_questoes = [
     'opcoes': {'A': '-19', 'B': '85', 'C': '89', 'D': '99'},
     'correta': 'C'},
 
+    {'titulo': 'Termo econômico usado para designar o aumento generalizado de preços de bens e serviços',
+    'nivel': 'facil',
+    'opcoes': {'A': 'Lei da oferta e demanda', 'B': 'Inflação', 'C': 'Taxa de juros', 'D': 'PIB'},
+    'correta': 'B'},
+
+    {'titulo': 'Qual o planeta do sistema solar mais distante da Terra?',
+    'nivel': 'facil',
+    'opcoes': {'A': 'Urano', 'B': 'Planeta X', 'C': 'Plutão', 'D': 'Netuno'},
+    'correta': 'D'},
+
     {'titulo': 'Qual a capital do Brasil?',
     'nivel': 'facil',
     'opcoes': {'A': 'Brasília', 'B': 'Rio de janeiro', 'C': 'São Paulo', 'D': 'Osasco'},
@@ -180,6 +190,11 @@ lista_questoes = [
     'opcoes': {'A': 'Laranja', 'B': 'Maça', 'C': 'Tomate', 'D': 'Abacate'},
     'correta': 'B'},
 
+    {'titulo': 'Como se move o Rei no tabuleiro de xadrez?',
+    'nivel': 'facil',
+    'opcoes': {'A': 'Apenas uma casa mas para qualquer direção', 'B': 'Apenas uma casa e sempre para frente', 'C': 'Apenas uma casa mas nas diagonais', 'D': 'Qualquer número de casas em qualquer direção'},
+    'correta': 'A'},
+
     {'titulo': 'Em qual ano o TikTok atingiu 1 bilhão de usuários?',
     'nivel': 'facil',
     'opcoes': {'A': '2019', 'B': '2021', 'C': '2015', 'D': '2018'},
@@ -203,6 +218,11 @@ lista_questoes = [
     {'titulo': 'Dentre os listados, qual destes esportes é menos praticado no Brasil?',
     'nivel': 'facil',
     'opcoes': {'A': 'Natação', 'B': 'Vôlei', 'C': 'Ski Cross Country', 'D': 'Futebol'},
+    'correta': 'C'},
+
+    {'titulo': 'Quantos estados o Brasil possui?',
+    'nivel': 'facil',
+    'opcoes': {'A': '13', 'B': '22', 'C': '26', 'D': '27'},
     'correta': 'C'},
     
     {'titulo': 'Qual o resultado da operação 5 + 2 * 3?',
@@ -255,6 +275,36 @@ lista_questoes = [
     'opcoes': {'A': 'Cristiano Ronaldo', 'B': 'Dwayne Johnson', 'C': 'Kim Kardashian', 'D': 'Lionel Messi'},
     'correta': 'A'},
 
+    {'titulo': 'Qual a combinação mais poderosa no poker?',
+    'nivel': 'medio',
+    'opcoes': {'A': 'Quadra', 'B': 'Full House', 'C': 'Royal Straight Flush', 'D': 'Bingo'},
+    'correta': 'C'},
+
+    {'titulo': 'Qual o mascote da seleção brasileira de futebol masculino?',
+    'nivel': 'medio',
+    'opcoes': {'A': 'Fuleco', 'B': 'Tatu-bola', 'C': 'Zizito', 'D': 'Canarinho'},
+    'correta': 'D'},
+
+    {'titulo': 'Qual dessas NÃO é uma linguagem de programação de alto nível?',
+    'nivel': 'medio',
+    'opcoes': {'A': 'Python', 'B': 'Assembly', 'C': 'Kotlin', 'D': 'C++'},
+    'correta': 'B'},
+
+    {'titulo': 'O que é um número racional?',
+    'nivel': 'medio',
+    'opcoes': {'A': 'Um número que é divisível somente por um e por ele mesmo', 'B': 'É o quadrado de um número irracional', 'C': 'É um número da forma p/q onde p e q são números naturais', 'D': 'É um número da forma a + b*i em que i é raiz de -1'},
+    'correta': 'C'},
+
+    {'titulo': 'Em que ano ocorreu a queda do muro de Berlim?',
+    'nivel': 'medio',
+    'opcoes': {'A': '1989', 'B': '1991', 'C': '1964', 'D': '1984'},
+    'correta': 'A'},
+
+    {'titulo': 'Qual desses países não possui uma bandeira quadrada?',
+    'nivel': 'medio',
+    'opcoes': {'A': 'Togo', 'B': 'Nepal', 'C': 'Vietnã', 'D': 'Guam'},
+    'correta': 'B'},
+
     {'titulo': 'A reprodução dos seres vivos é um processo biológico através do qual os organismos geram descendência. Qual desta não é uma forma de reprodução assexuada?',
     'nivel': 'dificil',
     'opcoes': {'A': 'Autogamia', 'B': 'Esporulação', 'C': 'Partenogênese', 'D': 'Divisão binária'},
@@ -303,6 +353,21 @@ lista_questoes = [
     {'titulo': 'O que é Necrose?',
     'nivel': 'dificil',
     'opcoes': {'A': 'Uma banda de Rock', 'B': 'Uma marca de luxo', 'C': 'Cidade Francesa', 'D': 'Morte de tecido orgânico'},
+    'correta': 'D'},
+
+    {'titulo': 'Qual o nome da lei que estabelece a relação entre a velocidade de afastamento de uma galáxia e sua distância?',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'Lei de Eddington', 'B': 'Lei de Hubble', 'C': 'Lei de Hawking', 'D': 'Lei de Swan Leavitt'},
+    'correta': 'B'},
+
+    {'titulo': 'Quem era o treinador da seleção brasileira na conquista do tetra da Copa do Mundo da FIFA?',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'Carlos Alberto Parreira', 'B': 'Luiz Felipe Scolari, o Felipão', 'C': 'Mario Jorge Lobo Zagallo', 'D': 'Carlos Caetano Bledorn Verri, o Dunga'},
+    'correta': 'A'},
+
+    {'titulo': '__________ é o nome dado a quando o jogador de xadrez é forçado a uma situação de desvantagem por sua obrigação de fazer um movimento',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'En Passant', 'B': 'Zwischenzug', 'C': 'Xeque-Mate', 'D': 'Zugzwang'},
     'correta': 'D'}
 ]
 questoes_por_nivel = transforma_base(lista_questoes)
