@@ -224,6 +224,16 @@ lista_questoes = [
     'nivel': 'facil',
     'opcoes': {'A': '13', 'B': '22', 'C': '26', 'D': '27'},
     'correta': 'C'},
+
+    {'titulo': '__________ é o nome dado à jogada que termina o jogo de xadrez',
+    'nivel': 'facil',
+    'opcoes': {'A': 'En Passant', 'B': 'Xeque-Mate', 'C': 'Zwischenzug', 'D': 'Zugzwang'},
+    'correta': 'B'},
+
+    {'titulo': 'Qual o nome do protagonista do jogo God of War?',
+    'nivel': 'facil',
+    'opcoes': {'A': 'Kratos', 'B': 'Perseu', 'C': 'Hércules', 'D': 'Seu Lunga'},
+    'correta': 'A'},
     
     {'titulo': 'Qual o resultado da operação 5 + 2 * 3?',
     'nivel': 'medio',
@@ -305,6 +315,11 @@ lista_questoes = [
     'opcoes': {'A': 'Togo', 'B': 'Nepal', 'C': 'Vietnã', 'D': 'Guam'},
     'correta': 'B'},
 
+    {'titulo': 'Qual o nome do americano negro morto asfixiado por um policial em famoso caso ocorrido em 2020?',
+    'nivel': 'medio',
+    'opcoes': {'A': 'Derek Chauvin', 'B': 'Robert Brown', 'C': 'Derek Williams', 'D': 'George Floyd'},
+    'correta': 'D'},
+
     {'titulo': 'A reprodução dos seres vivos é um processo biológico através do qual os organismos geram descendência. Qual desta não é uma forma de reprodução assexuada?',
     'nivel': 'dificil',
     'opcoes': {'A': 'Autogamia', 'B': 'Esporulação', 'C': 'Partenogênese', 'D': 'Divisão binária'},
@@ -368,7 +383,27 @@ lista_questoes = [
     {'titulo': '__________ é o nome dado a quando o jogador de xadrez é forçado a uma situação de desvantagem por sua obrigação de fazer um movimento',
     'nivel': 'dificil',
     'opcoes': {'A': 'En Passant', 'B': 'Zwischenzug', 'C': 'Xeque-Mate', 'D': 'Zugzwang'},
-    'correta': 'D'}
+    'correta': 'D'},
+
+    {'titulo': '"Todo número par maior que 2 pode ser representado pela soma de dois números primos" é a conjectura de...',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'Euler', 'B': 'Pascal', 'C': 'Goldbach', 'D': 'Ramanujan'},
+    'correta': 'C'},
+
+    {'titulo': 'Quem criou o aparelho telefônico?',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'Thomas Edison', 'B': 'Alexander Graham Bell', 'C': 'James Watt', 'D': 'Johannes Gutenberg'},
+    'correta': 'B'},
+
+    {'titulo': 'Sabendo que dia 23 de março de 1726 caiu em um sábado, que dia da semana foi 21 de Junho de 1726?',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'Segunda', 'B': 'Terça', 'C': 'Quinta', 'D': 'Sexta'},
+    'correta': 'D'},
+
+    {'titulo': 'Quem foi o criador da luneta',
+    'nivel': 'dificil',
+    'opcoes': {'A': 'Hans Lippershey', 'B': 'Galileu Galilei', 'C': 'Carl Friedrich Gauss', 'D': 'Edwin Powell Hubble'},
+    'correta': 'A'}
 ]
 questoes_por_nivel = transforma_base(lista_questoes)
 
