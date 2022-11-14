@@ -437,6 +437,7 @@ while not fim_do_jogo:
                 pulos_disponiveis -= 1
                 if pulos_disponiveis == 0:
                     print('Você pulou a questão e não tem mais pulos disponíveis')
+                    fim_da_questao = True
                 else:
                     print(f"Você pulou a questão e ainda tem {pulos_disponiveis} pulos disponíveis")
                     fim_da_questao = True
